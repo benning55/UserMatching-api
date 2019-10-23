@@ -14,3 +14,18 @@ This goal of this project is to make service that match the user from diference 
 # The tools that we will use?
 - Post Man
 - Java SpringBoot api
+- My Sql v5.7
+- Google Cloud Platform (Sql database)
+
+# (development) Mocked Up Company Data
+To access the mocked up data please run the project "companya"
+```
+localhost:8200/companya -> Get All Company Customer Mocked Up Data
+localhost:8200/id -> Get by Id of Company Customer Mocked Up Data
+localhost:8200/companya-create -> Post New Company Customer Mocked Up Data
+
+Fields of data:
+id, username, password, email
+id_card_number, fname, lname, address
+phone, credit_card
+``` 
