@@ -29,3 +29,6 @@ id, username, password, email
 id_card_number, fname, lname, address
 phone, credit_card
 ``` 
+
+# Eureka Server
+The eureka server is run localhost:8761
