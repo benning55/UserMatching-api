@@ -2,9 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/../eurekaserver/DiscoveryServerApplication.iml" filepath="$PROJECT_DIR$/../eurekaserver/DiscoveryServerApplication.iml" />
+      <module fileurl="file://$PROJECT_DIR$/eurekaserver/DiscoveryServerApplication.iml" filepath="$PROJECT_DIR$/eurekaserver/DiscoveryServerApplication.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/UserMatching-api.iml" filepath="$PROJECT_DIR$/.idea/UserMatching-api.iml" />
-      <module fileurl="file://$PROJECT_DIR$/../companya/companya.iml" filepath="$PROJECT_DIR$/../companya/companya.iml" />
+      <module fileurl="file://$PROJECT_DIR$/companya/companya.iml" filepath="$PROJECT_DIR$/companya/companya.iml" />
+      <module fileurl="file://$PROJECT_DIR$/companyb/companyb.iml" filepath="$PROJECT_DIR$/companyb/companyb.iml" />
     </modules>
   </component>
 </project>
