@@ -1,8 +1,9 @@
-server:
-  port: 8761
-  eureka:
-    client:
-      registerWithEureka: false
-      fetchRegistry: false
-    server:
-      waitTimeInMsWhenSyncEmpty: 5
+spring:
+  application:
+    name: Eureka-Server
+eureka:
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+  server:
+    waitTimeInMsWhenSyncEmpty: 5

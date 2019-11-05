@@ -44,13 +44,14 @@ public class CompanyaContoller {
         String username = body.get("username");
         String password = body.get("password");
         String email = body.get("email");
-        String id_card_number = body.get("id_card_number");
-        String fname = body.get("fname");
-        String lname = body.get("lname");
+        String id_card_number = body.get("personal_id");
+        String fname = body.get("first_name");
+        String lname = body.get("last_name");
         String address = body.get("address");
         String phone = body.get("phone");
         String credit = body.get("credit_card");
-        return companyaRepository.save(new CustomerDeatail(username, password, email, id_card_number, fname, lname, address, phone, credit));
+        String gender = body.get("gender");
+        return companyaRepository.save(new CustomerDeatail(username, password, email, id_card_number, fname, lname, address, phone, credit, gender));
     }
 //
     //update companya
@@ -61,12 +62,13 @@ public class CompanyaContoller {
         cusCH.get().setUsername(body.get("username"));
         cusCH.get().setPassword((body.get("password")));
         cusCH.get().setEmail((body.get("email")));
-        cusCH.get().setId_card_number((body.get("id_card_number")));
-        cusCH.get().setFname((body.get("fname")));
-        cusCH.get().setLname((body.get("lname")));
+        cusCH.get().setPersonal_id((body.get("personal_id")));
+        cusCH.get().setFirst_name((body.get("first_name")));
+        cusCH.get().setLast_name((body.get("last_name")));
         cusCH.get().setAddress((body.get("address")));
         cusCH.get().setPhone((body.get("phone")));
         cusCH.get().setCredit_card((body.get("credit_card")));
+        cusCH.get().setGender((body.get(("gender"))));
         return companyaRepository.save(cusCH.get());
     }
 
