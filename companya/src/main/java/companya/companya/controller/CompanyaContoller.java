@@ -31,12 +31,21 @@ public class CompanyaContoller {
         return optCus.get();
     }
 
-    //search by username
-    @PostMapping("/companya/search")
+    @PostMapping("companya/search-person")
     public List<CustomerDeatail> search(@RequestBody Map<String, String> body){
-        String searchInput = body.get("username");
-        return companyaRepository.findByUsername(searchInput);
+        String first_name = body.get("first_name");
+        System.out.println(first_name);
+        String last_name = body.get("last_name");
+        System.out.println(last_name);
+        return companyaRepository.findByFirstnameAndLastName(first_name, last_name);
     }
+
+//    //search by username
+//    @PostMapping("/companya/search")
+//    public List<CustomerDeatail> search(@RequestBody Map<String, String> body){
+//        String searchInput = body.get("username");
+//        return companyaRepository.findByUsername(searchInput);
+//    }
 //
     //create new cus companya
     @PostMapping("/companya-create")
