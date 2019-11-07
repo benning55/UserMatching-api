@@ -49,7 +49,8 @@ public class CompanybController {
         String address = body.get("address");
         String phone = body.get("phone");
         String credit = body.get("credit_card");
-        return companybRepository.save(new CustomerDeatail(username, password, email, id_card_number, fname, lname, address, phone, credit));
+        String gender = body.get("gender");
+        return companybRepository.save(new CustomerDeatail(username, password, email, id_card_number, fname, lname, address, phone, credit, gender));
     }
     //
     //update companyb

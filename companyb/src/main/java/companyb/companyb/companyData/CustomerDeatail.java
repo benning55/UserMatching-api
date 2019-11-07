@@ -9,15 +9,44 @@ public class CustomerDeatail {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
+    @Column(name = "username")
     private String username;
+
+    @Column(name = "password")
     private String password;
+
+    @Column(name = "email")
     private String email;
+
+    @Column(name = "id_card_number")
     private String id_card_number;
+
+    @Column(name = "fname")
     private String fname;
+
+    @Column(name = "lname")
     private String lname;
+
+    @Column(name = "address")
     private String address;
+
+    @Column(name = "phone")
     private String phone;
+
+    @Column(name = "credit_card")
     private String credit_card;
+
+    @Column(name = "gender")
+    private String gender;
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
 
     public int getId() {
         return id;
@@ -99,7 +128,7 @@ public class CustomerDeatail {
         this.credit_card = credit_card;
     }
 
-    public CustomerDeatail(int id, String username, String password, String email, String id_card_number, String fname, String lname, String address, String phone, String credit_card) {
+    public CustomerDeatail(int id, String username, String password, String email, String id_card_number, String fname, String lname, String address, String phone, String credit_card, String gender) {
         this.id = id;
         this.username = username;
         this.password = password;
@@ -110,12 +139,13 @@ public class CustomerDeatail {
         this.address = address;
         this.phone = phone;
         this.credit_card = credit_card;
+        this.gender = gender;
     }
 
     public CustomerDeatail() {
     }
 
-    public CustomerDeatail(String username, String password, String email, String id_card_number, String fname, String lname, String address, String phone, String credit_card) {
+    public CustomerDeatail(String username, String password, String email, String id_card_number, String fname, String lname, String address, String phone, String credit_card, String gender) {
         this.username = username;
         this.password = password;
         this.email = email;
@@ -125,6 +155,7 @@ public class CustomerDeatail {
         this.address = address;
         this.phone = phone;
         this.credit_card = credit_card;
+        this.gender = gender;
     }
 
     @Override
@@ -140,6 +171,7 @@ public class CustomerDeatail {
                 ", address=" + this.address + '\'' +
                 ", phone=" + this.phone + '\'' +
                 ", creditCard=" + this.credit_card + '\'' +
+                ", gender=" + this.gender + '\'' +
                 '}';
     }
 }
