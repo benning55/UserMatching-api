@@ -30,12 +30,18 @@ public class CompanybController {
         return optCus.get();
     }
 
-    //search by username
-    @PostMapping("/companyb/search")
+    @PostMapping("companyb/search-person")
     public List<CustomerDeatail> search(@RequestBody Map<String, String> body){
-        String searchInput = body.get("username");
-        return companybRepository.findByUsername(searchInput);
+        String first_name = body.get("fname");
+        String last_name = body.get("lname");
+        return companybRepository.findByFirstnameAndLastName(first_name, last_name);
     }
+    //search by username
+//    @PostMapping("/companyb/search")
+//    public List<CustomerDeatail> search(@RequestBody Map<String, String> body){
+//        String searchInput = body.get("username");
+//        return companybRepository.findByUsername(searchInput);
+//    }
     //
     //create new cus companyb
     @PostMapping("/companyb-create")
