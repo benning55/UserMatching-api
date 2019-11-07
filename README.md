@@ -14,21 +14,35 @@ This goal of this project is to make service that match the user from diference 
 # The tools that we will use?
 - Post Man
 - Java SpringBoot api
+- Django rest-framework
 - My Sql v5.7
 - Google Cloud Platform (Sql database)
 
 # (development) Mocked Up Company Data
-To access the mocked up data please run the project "companya"
+To access the mocked up data please run the project "companya, companyb"
 ```
 localhost:8200/companya -> Get All Company Customer Mocked Up Data
-localhost:8200/id -> Get by Id of Company Customer Mocked Up Data
+localhost:8200/companya/id -> Get by Id of Company Customer Mocked Up Data
 localhost:8200/companya-create -> Post New Company Customer Mocked Up Data
+
+
+localhost:8200/companyb -> Get All Company Customer Mocked Up Data
+localhost:8200/companyb/id -> Get by Id of Company Customer Mocked Up Data
+localhost:8200/companyb-create -> Post New Company Customer Mocked Up Data
 
 Fields of data:
 id, username, password, email
 id_card_number, fname, lname, address
-phone, credit_card
+phone, credit_card,gender
 ``` 
 
 # Eureka Server
 The eureka server is run localhost:8761
+
+# Member and Work Description
+We are no.10 group in subject of sevice oreinted programming. 
+We manage our work as sub service inside. That's include
+60070109 -> Make a mock up database service and service to call data from database.
+60070040 -> Make our service more userfriendly by making front-end side to easy to use.
+60070106 -> Make service that match the data to confirm how much percent is this real person.
+60070016 -> Make service that convert data of 2 company to be same type of data.
