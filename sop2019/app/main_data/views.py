@@ -25,12 +25,9 @@ def person_view(request):
         if serializer.is_valid():
             result = serializer.create(validated_data=request.data)
             print(f'{result.first_name} {result.last_name}')
-            final_data = json.dumps(cls=MyEncoder, obj=result)
-            data_a = get_company_a_data()
-            print(data_a)
-            # print(data_a)
-            data_b = get_company_b_data()
-            print(data_b)
+            # final_data = json.dumps(cls=MyEncoder, obj=result)
+            data_a = get_company_a_data(result.first_name, result.last_name)
+            data_b = get_company_b_data(result.first_name, result.last_name)
             payload = {
                 'companyA': data_a,
                 'companyB': data_b
@@ -55,23 +52,27 @@ def companya_data(request):
     return Response(res.json(), status=status.HTTP_200_OK)
 
 
-def get_company_a_data():
+def get_company_a_data(first_name, last_name):
     """Get the data from company A"""
-    url = "http://10.110.198.242:8200/companya/"
-    response = urllib.request.urlopen(url)
-    data = json.loads(response.read())
-    return data
-
-
-def get_company_b_data():
-    """Get the data from company B"""
     url = "http://10.110.198.242:8200/companya/search-person/"
     headers = {'Content-type': 'application/json', 'Accept': 'application/json'}
-    print("Test what is happen")
+    print("Company A data is Okay")
     payload = {
-        "first_name": "muse",
-        "last_name": "muse"
+        "first_name": first_name,
+        "last_name": last_name
     }
     res = requests.post(url, json=payload, headers=headers)
     return res.json()
 
+
+def get_company_b_data(first_name, last_name):
+    """Get the data from company B"""
+    url = "http://10.110.198.242:8202/companyb/search-person/"
+    headers = {'Content-type': 'application/json', 'Accept': 'application/json'}
+    print("Company B data is Okay")
+    payload = {
+        "fname": first_name,
+        "lname": last_name
+    }
+    res = requests.post(url, json=payload, headers=headers)
+    return res.json()
