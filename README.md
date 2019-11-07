@@ -39,10 +39,22 @@ phone, credit_card,gender
 # Eureka Server
 The eureka server is run localhost:8761
 
+# Home Service enter firstname, lastname to retrieve data from company. (sop2019)
+```
+to start service look below.
+1. go to file sop2019 and open project.
+2. change ip in manage.py, view.py to ip that can see in "localhost:8761" below.
+3. run terminal then type "docker-compose up".
+4. go to "localhost:8000/person-request/" and post json data as "first_name, last_name"
+```
+
 # Member and Work Description
+```
 We are no.10 group in subject of sevice oreinted programming. 
 We manage our work as sub service inside. That's include
+
 60070109 -> Make a mock up database service and service to call data from database.
 60070040 -> Make our service more userfriendly by making front-end side to easy to use.
 60070106 -> Make service that match the data to confirm how much percent is this real person.
 60070016 -> Make service that convert data of 2 company to be same type of data.
+```
