@@ -34,9 +34,7 @@ public class CompanyaContoller {
     @PostMapping("companya/search-person")
     public List<CustomerDeatail> search(@RequestBody Map<String, String> body){
         String first_name = body.get("first_name");
-        System.out.println(first_name);
         String last_name = body.get("last_name");
-        System.out.println(last_name);
         return companyaRepository.findByFirstnameAndLastName(first_name, last_name);
     }
 

@@ -12,7 +12,7 @@ import java.util.List;
 public interface CompanyaRepository extends JpaRepository<CustomerDeatail, Integer> {
     List<CustomerDeatail> findByUsername(String username);
 
-    @Query("select '*' from CustomerDeatail where first_name = :first_name and  last_name = :last_name")
+    @Query("select cd from CustomerDeatail cd where cd.first_name = :first_name and  cd.last_name = :last_name")
     List<CustomerDeatail> findByFirstnameAndLastName(@Param("first_name") String first_name,
                                                      @Param("last_name") String last_name);
 }
