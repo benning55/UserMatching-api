@@ -36,6 +36,11 @@ id_card_number, fname, lname, address
 phone, credit_card,gender
 ``` 
 
+# How to start projects
+1. Open terminal and go to directory
+2. run command in first terminal ```docker-compose up```
+3. run command in second terminal ```docker-compose exec app sh -c "python manage.py runserver 0.0.0.0:8000```
+
 # Eureka Server
 The eureka server is run localhost:8761
 
@@ -43,8 +48,7 @@ The eureka server is run localhost:8761
 to start service look below.
 1. go to file sop2019 and open project.
 2. change ip in ```manage.py, view.py``` to ip that can see in ```localhost:8761``` below.
-3. run terminal then type ```docker-compose up```.
-4. go to ```localhost:8000/person-request/``` and post json data as "first_name, last_name"
+3. go to ```localhost:8000/person-request/``` and post json data as "first_name, last_name"
 
 # Member and Work Description
 We are no.10 group in subject of sevice oreinted programming. 

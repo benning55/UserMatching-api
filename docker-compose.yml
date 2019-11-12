@@ -1,0 +1,34 @@
+version: '3'
+
+services:
+ eureka-server:
+   build:
+    context: eurekaserver
+    dockerfile: Dockerfile
+   ports:
+    - "8761:8761"
+
+ companya:
+   build:
+    context: companya
+    dockerfile: Dockerfile
+   ports:
+    - "8200:8200"
+
+ companyb:
+   build:
+    context: companyb
+    dockerfile: Dockerfile
+   ports:
+    - "8202:8202"
+
+ app:
+   user: $UID:$GID
+   build:
+     context: sop2019
+     dockerfile: Dockerfile
+   ports:
+     - "8000:8000"
+   volumes:
+     - ./sop2019/app:/app:Z
+   command: sh -c "pip install -r requirements.txt && sleep 3600"
