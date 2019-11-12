@@ -1,4 +1,4 @@
-version: '3'
+version: '3.7'
 
 services:
  eureka-server:
@@ -29,6 +29,6 @@ services:
      dockerfile: Dockerfile
    ports:
      - "8000:8000"
+   command: sh -c "pip install -r requirements.txt && tail -f /dev/null"
    volumes:
      - ./sop2019/app:/app:Z
-   command: sh -c "pip install -r requirements.txt && sleep 3600"
