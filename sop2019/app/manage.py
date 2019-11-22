@@ -6,7 +6,7 @@ import sys
 
 def main():
     your_rest_server_port = 8000
-    eureka_client.init_registry_client(eureka_server="http://10.110.198.242:8761/eureka/",
+    eureka_client.init_registry_client(eureka_server="http://172.26.0.3:8761/eureka/",
                                        app_name="PERSON_SERVICE",
                                        instance_port=your_rest_server_port)
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'app.settings')
