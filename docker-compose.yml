@@ -23,19 +23,17 @@ services:
     - "8202:8202"
 
  netflixzull:
-   command: sh -c "sleep 60;"
    build:
      context: netflixzull
      dockerfile: Dockerfile
    ports:
      - "9090:9090"
-   environment:
-     - HOSTNAMEAPP=app
-   restart: on-failure
-   depends_on:
-     - app
    links:
-     - app
+     - eureka-server
+   depends_on:
+     - eureka-server
+   environment:
+     EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eureka-server:8761/eureka
 
  app:
    user: $UID:$GID
@@ -47,8 +45,4 @@ services:
    command: sh -c "pip install -r requirements.txt && tail -f /dev/null"
    volumes:
      - ./sop2019/app:/app:Z
-   healthcheck:
-     test: ["CMD", "curl", "-f", "http://localhost:8000"]
-     interval: 30s
-     timeout: 10s
-     retries: 5
+
