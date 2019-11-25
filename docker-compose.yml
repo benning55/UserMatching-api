@@ -46,3 +46,14 @@ services:
    volumes:
      - ./sop2019/app:/app:Z
 
+ data-format:
+   user: $UID:$GID
+   build:
+     context: dataformat
+     dockerfile: Dockerfile
+   ports:
+     - "8300:8300"
+   command: sh -c "tail -f /dev/null"
+   volumes:
+     - ./dataformat/app:/app:Z
+

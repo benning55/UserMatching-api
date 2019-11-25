@@ -40,7 +40,7 @@ def person_view(request):
 @permission_classes([AllowAny, ])
 def companya_data(request):
     """Look at company a data"""
-    url = "http://172.21.0.1:8200/companya/search-person/"
+    url = "http://172.24.0.1:8200/companya/search-person/"
     headers = {'Content-type': 'application/json', 'Accept': 'application/json'}
     print("Test what is happen")
     payload = {
@@ -54,7 +54,7 @@ def companya_data(request):
 
 def get_company_a_data(first_name, last_name):
     """Get the data from company A"""
-    url = "http://172.21.0.1:8200/companya/search-person/"
+    url = "http://172.24.0.1:8200/companya/search-person/"
     headers = {'Content-type': 'application/json', 'Accept': 'application/json'}
     print("Company A data is Okay")
     payload = {
@@ -67,7 +67,7 @@ def get_company_a_data(first_name, last_name):
 
 def get_company_b_data(first_name, last_name):
     """Get the data from company B"""
-    url = "http://172.21.0.1:8202/companyb/search-person/"
+    url = "http://172.24.0.1:8202/companyb/search-person/"
     headers = {'Content-type': 'application/json', 'Accept': 'application/json'}
     print("Company B data is Okay")
     payload = {
