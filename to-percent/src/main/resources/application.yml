@@ -1,17 +1,14 @@
-server:
-  port: 8300
 spring:
   application:
-    name: datamatchingservice
+    name: compare-data
   profiles:
     active: default
   cloud:
     config:
       enabled: true
-
-eureka:
-  instance:
-    preferIpAddress: true
+  eureka:
+    instance:
+      preferIpAddress: true
   client:
     registerWithEureka: true
     fetchRegistry: true

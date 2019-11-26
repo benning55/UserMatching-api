@@ -50,7 +50,7 @@ def format_data(request):
 
                 elif str(detail) in gender_check:
                     if data[company][0][detail] in gender_m_type_check:
-                        defineformat.update({"gender": "mele"})
+                        defineformat.update({"gender": "male"})
                     if data[company][0][detail] in gender_f_type_check:
                         defineformat.update({"gender": "female"})
 
@@ -59,15 +59,15 @@ def format_data(request):
 
             data_out.append(defineformat)
 
-            # to_mek = match_percent(data_out)
-            # print("to_mek", to_mek)
+            to_mek = match_percent(data_out)
+            print("to_mek", to_mek)
         return Response(data_out, status=status.HTTP_200_OK)
     return Response(status.HTTP_400_BAD_REQUEST)
 
 
 def match_percent(payload):
     """Send data to get format"""
-    url = "http://172.26.0.3:8300/api/data-format/"  # ลิงค์นี้ใส่ url เมฆ
+    url = "http://benntend.it.kmitl.ac.th:8400/to-percent/"  # ลิงค์นี้ใส่ url เมฆ
     headers = {'Content-type': 'application/json', 'Accept': 'application/json'}
     print("Is on going")
     res = requests.post(url, json=payload, headers=headers)
