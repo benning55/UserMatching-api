@@ -22,6 +22,13 @@ services:
    ports:
     - "8202:8202"
 
+ compare-data:
+   build:
+    context: to-percent
+    dockerfile: Dockerfile
+   ports:
+    - "8400:8400"
+
  netflixzull:
    build:
      context: netflixzull

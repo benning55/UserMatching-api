@@ -54,6 +54,14 @@ def companya_data(request):
     return Response(res.json(), status=status.HTTP_200_OK)
 
 
+@api_view(['POST', ])
+@permission_classes([AllowAny, ])
+def result_data(request):
+    """Recieve result data"""
+    if request.method == 'POST':
+        return Response(request.data, status.HTTP_200_OK)
+
+
 def get_company_a_data(first_name, last_name):
     """Get the data from company A"""
     url = "http://172.18.0.1:8200/companya/search-person/"

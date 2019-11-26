@@ -1,7 +1,16 @@
 package topercent.topercent.controller;
 
+import org.apache.http.impl.client.BasicResponseHandler;
+import org.apache.http.impl.client.HttpClientBuilder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+
+import org.apache.http.HttpResponse;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.entity.ContentType;
+import org.apache.http.entity.StringEntity;
+
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -138,6 +147,17 @@ public class TopercentController {
 
         //insert to data
         ans_matching.add(map);
+
+        StringEntity entity = new StringEntity(String.valueOf(ans_matching),
+                ContentType.APPLICATION_FORM_URLENCODED);
+        HttpClient httpClient = HttpClientBuilder.create().build();
+        HttpPost request = new HttpPost("http://localhost:8000/api/result-data/");
+        request.setEntity(entity);
+
+        HttpResponse response = httpClient.execute(request);
+        System.out.println(response.getStatusLine().getStatusCode());
+        String responseString = new BasicResponseHandler().handleResponse(response);
+//        System.out.println(responseString);
         return ans_matching;
     }
 }
