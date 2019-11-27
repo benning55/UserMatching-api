@@ -24,10 +24,16 @@ services:
 
  compare-data:
    build:
-    context: to-percent
-    dockerfile: Dockerfile
+     context: to-percent
+     dockerfile: Dockerfile
    ports:
-    - "8400:8400"
+     - "8400:8400"
+   links:
+     - eureka-server
+   depends_on:
+     - eureka-server
+   environment:
+     EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eureka-server:8761/eureka
 
  netflixzull:
    build:

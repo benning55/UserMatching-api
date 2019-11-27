@@ -86,7 +86,7 @@ WSGI_APPLICATION = 'app.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
+        'ENGINE': 'mysql.connector.django',
         'NAME': 'sop2019',
         'USER': 'root',
         'PASSWORD': 'kmitlroot',
