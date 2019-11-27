@@ -168,7 +168,7 @@ public class TopercentController {
         System.out.println(json);
 
         HttpClient httpClient = HttpClientBuilder.create().build();
-        HttpPost request = new HttpPost("http://192.168.80.1:8000/api/result-data/");
+        HttpPost request = new HttpPost("http://172.27.0.1:8000/api/result-data/");
         request.setEntity(new StringEntity(json));
         request.setHeader("Content-type", "application/json");
         try {

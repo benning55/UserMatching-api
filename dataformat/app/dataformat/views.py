@@ -67,7 +67,7 @@ def format_data(request):
 
 def match_percent(payload):
     """Send data to get format"""
-    url = "http://192.168.80.1:8400/to-percent/"  # ลิงค์นี้ใส่ url เมฆ
+    url = "http://172.27.0.1:8400/to-percent/"  # ลิงค์นี้ใส่ url เมฆ
     headers = {'Content-type': 'application/json', 'Accept': 'application/json'}
     print("Is on going")
     res = requests.post(url, json=payload, headers=headers)
