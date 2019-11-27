@@ -54,7 +54,7 @@ to start service look below.
 3. go to ```localhost:8000/person-request/``` and post json data as "first_name, last_name"
 
 # How does it work?
-![Activity_diagram]("how_does_it_work.jpg")
+![Activity_diagram](https://github.com/benning55/UserMatching-api/blob/master/how_does_it_work.jpg)
 
 # Member and Work Description
 We are no.10 group in subject of sevice oreinted programming. 
