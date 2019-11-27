@@ -6,7 +6,8 @@ from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import AllowAny
-from main_data.serializers import PersonSerializer
+from main_data.serializers import PersonSerializer, RealPersonSerializer
+from .models import RealPerson
 from json import JSONEncoder
 # Create your views here.
 
@@ -59,13 +60,44 @@ def companya_data(request):
 def result_data(request):
     """Recieve result data"""
     if request.method == 'POST':
-        print(request.data)
-        return Response(request.data, status.HTTP_200_OK)
+        serializer = RealPersonSerializer(data=request.data[0])
+        if serializer.is_valid():
+            jdata = request.data[0]
+            quryset = RealPerson.objects.all()
+            if jdata['name']:
+                quryset = quryset.filter(name=jdata['name'])
+            if jdata['surname']:
+                quryset = quryset.filter(surname=jdata['surname'])
+            print("queryset", len(quryset.values()))
+            if len(quryset.values()) == 0:
+                value = RealPerson.objects.create(**jdata)
+                value.save()
+            else:
+                quryset.update(**jdata)
+            return Response(serializer.data, status.HTTP_200_OK)
+        else:
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+@api_view(['POST', ])
+@permission_classes([AllowAny, ])
+def get_person(request):
+    """Get data of person"""
+    if request.method == 'POST':
+        data = request.data
+        queryset = RealPerson.objects.all()
+        if data['first_name']:
+            queryset = queryset.filter(name=data['first_name'])
+        if data['last_name']:
+            queryset = queryset.filter(surname=data['last_name'])
+        # print("data", queryset.values())
+        return Response(queryset.values(), status=status.HTTP_200_OK)
+
 
 
 def get_company_a_data(first_name, last_name):
     """Get the data from company A"""
-    url = "http://172.31.0.1:8200/companya/search-person/"
+    url = "http://192.168.48.1:8200/companya/search-person/"
     headers = {'Content-type': 'application/json', 'Accept': 'application/json'}
     print("Company A data is Okay")
     payload = {
@@ -78,7 +110,7 @@ def get_company_a_data(first_name, last_name):
 
 def get_company_b_data(first_name, last_name):
     """Get the data from company B"""
-    url = "http://172.31.0.1:8202/companyb/search-person/"
+    url = "http://192.168.48.1:8202/companyb/search-person/"
     headers = {'Content-type': 'application/json', 'Accept': 'application/json'}
     print("Company B data is Okay")
     payload = {
@@ -91,7 +123,7 @@ def get_company_b_data(first_name, last_name):
 
 def format_data(payload):
     """Send data to get format"""
-    url = "http://172.31.0.1:8300/api/data-format/"
+    url = "http://192.168.48.1:8300/api/data-format/"
     headers = {'Content-type': 'application/json', 'Accept': 'application/json'}
     print("Is on going")
     res = requests.post(url, json=payload, headers=headers)

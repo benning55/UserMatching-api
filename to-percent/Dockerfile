@@ -5,7 +5,7 @@ FROM openjdk:8-jdk-alpine
 VOLUME /tmp
 
 # Make port 8080 available to the world outside container
-EXPOSE 8761
+EXPOSE 8400
 
 # Set application's JAR file
 ARG JAR_FILE=target/students-0.0.1-SNAPSHOT.jar

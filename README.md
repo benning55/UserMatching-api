@@ -35,6 +35,9 @@ id, username, password, email
 id_card_number, fname, lname, address
 phone, credit_card,gender
 ``` 
+# Start eureka server
+1. เปิด terminal ไปยังโฟลเดอร์ eureka ```docker build -t eureka .```
+2. รันคำสั่ง ```docker run -p 8761:8761 eureka``` ให้ทำเริ่มทำงาน
 
 # How to start projects
 1. Open terminal and go to directory
