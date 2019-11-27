@@ -155,7 +155,7 @@ public class TopercentController {
         StringEntity entity = new StringEntity(String.valueOf(ans_matching),
                 ContentType.APPLICATION_FORM_URLENCODED);
         HttpClient httpClient = HttpClientBuilder.create().build();
-        HttpPost request = new HttpPost("http://192.168.48.1:8000/api/result-data/");
+        HttpPost request = new HttpPost("http://172.26.0.1:8000/api/result-data/");
         request.setEntity(entity);
         try {
             HttpResponse response = httpClient.execute(request);
