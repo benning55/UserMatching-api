@@ -43,7 +43,7 @@ def person_view(request):
 @permission_classes([AllowAny, ])
 def companya_data(request):
     """Look at company a data"""
-    url = "http://172.26.0.1:8200/companya/search-person/"
+    url = "http://192.168.80.1:8200/companya/search-person/"
     headers = {'Content-type': 'application/json', 'Accept': 'application/json'}
     print("Test what is happen")
     payload = {
@@ -59,10 +59,17 @@ def companya_data(request):
 @permission_classes([AllowAny, ])
 def result_data(request):
     """Recieve result data"""
+    print("Benning")
+    print("request", request.data)
+    d1 = json.dumps(request.data)
+    x = json.loads(d1)
+    print("x", x)
+    print(type(x))
     if request.method == 'POST':
-        serializer = RealPersonSerializer(data=request.data[0])
+        serializer = RealPersonSerializer(data=x)
+        print("hello")
         if serializer.is_valid():
-            jdata = request.data[0]
+            jdata = x
             quryset = RealPerson.objects.all()
             if jdata['name']:
                 quryset = quryset.filter(name=jdata['name'])
@@ -97,7 +104,7 @@ def get_person(request):
 
 def get_company_a_data(first_name, last_name):
     """Get the data from company A"""
-    url = "http://172.26.0.1:8200/companya/search-person/"
+    url = "http://192.168.80.1:8200/companya/search-person/"
     headers = {'Content-type': 'application/json', 'Accept': 'application/json'}
     print("Company A data is Okay")
     payload = {
@@ -110,7 +117,7 @@ def get_company_a_data(first_name, last_name):
 
 def get_company_b_data(first_name, last_name):
     """Get the data from company B"""
-    url = "http://172.26.0.1:8202/companyb/search-person/"
+    url = "http://192.168.80.1:8202/companyb/search-person/"
     headers = {'Content-type': 'application/json', 'Accept': 'application/json'}
     print("Company B data is Okay")
     payload = {
@@ -123,7 +130,7 @@ def get_company_b_data(first_name, last_name):
 
 def format_data(payload):
     """Send data to get format"""
-    url = "http://172.26.0.1:8300/api/data-format/"
+    url = "http://192.168.80.1:8300/api/data-format/"
     headers = {'Content-type': 'application/json', 'Accept': 'application/json'}
     print("Is on going")
     res = requests.post(url, json=payload, headers=headers)
