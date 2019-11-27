@@ -30,7 +30,7 @@ public class TopercentController {
         String[] name_array1 = payload.get(0).get("name").split("");
         String[] surname_array1 = payload.get(0).get("surname").split("");
         String[] address_array1 = payload.get(0).get("address").split("");
-        String[] phone_array1 = payload.get(0).get("Phone").split("");
+        String[] phone_array1 = payload.get(0).get("phone").split("");
 
 //make data of second company to array for compare percentage
         String[] email_array2 = payload.get(1).get("email").split("");
@@ -38,7 +38,7 @@ public class TopercentController {
         String[] name_array2 = payload.get(1).get("name").split("");
         String[] surname_array2 = payload.get(1).get("surname").split("");
         String[] address_array2 = payload.get(1).get("address").split("");
-        String[] phone_array2 = payload.get(1).get("Phone").split("");
+        String[] phone_array2 = payload.get(1).get("phone").split("");
 
         float summary_score_matching = 0;
 
@@ -79,7 +79,7 @@ public class TopercentController {
                     percentageOfMatch(address_array1, address_array2, 100));
         }
 //compare phone
-        if(!payload.get(0).get("Phone").equals("") && !payload.get(1).get("Phone").equals("")){
+        if(!payload.get(0).get("phone").equals("") && !payload.get(1).get("phone").equals("")){
             summary_score_matching += PercentageofMatchingString.
                     percentageOfMatch(phone_array1, phone_array2, 100);
             System.out.println(summary_score_matching+ " : "+PercentageofMatchingString.
@@ -131,10 +131,10 @@ public class TopercentController {
         {map.put("address", "");}
 
 //phone
-        if(payload.get(0).get("Phone").equals(payload.get(1).get("Phone")))
-        {map.put("Phone", payload.get(0).get("Phone"));}
+        if(payload.get(0).get("phone").equals(payload.get(1).get("phone")))
+        {map.put("phone", payload.get(0).get("phone"));}
         else
-        {map.put("Phone", "");}
+        {map.put("phone", "");}
 
 //gender
         if(payload.get(0).get("gender").equals(payload.get(1).get("gender")))
