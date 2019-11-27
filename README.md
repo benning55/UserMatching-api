@@ -53,6 +53,9 @@ to start service look below.
 2. change ip in ```manage.py, view.py``` to ip that can see in ```localhost:8761``` below.
 3. go to ```localhost:8000/person-request/``` and post json data as "first_name, last_name"
 
+# How does it work?
+![Activity_diagram](link-to-image)
+
 # Member and Work Description
 We are no.10 group in subject of sevice oreinted programming. 
 We manage our work as sub service inside. That's include
