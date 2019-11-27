@@ -16,45 +16,47 @@ def format_data(request):
         data_out = []
         data = request.data
 
-        name_check = ["name", "fname", "firstname", "first-name", "first_name", "first_name", "Name", "Fname",
-                      "Firstname", "First-name", "First_name", "First_name"]
-        surname_check = ["Lname", "lname", "surname", "Surname", "sur-name", "Surname", "sur_name", "Sur_name",
-                         "last_name"]
-        card_id_check = ["card_id", "cardid", "Card_id", "cardnumber", "card_number", "Cardnumber", "Card_number",
-                         "personal_id", "Personal_id", "personal-id", "Personal-id", "id_card_number"]
-        address_check = ["address", "Address", "local", "Local", ]
-        phone_check = ["Phone", "phone", "phonenumber", "phone-number", "phone_number", "Phonenumber", "Phone-number",
-                       "Phone_number", "tel", "Tel"]
-        gender_check = ["gender", "Gender", "Sex", "sex"]
-        gender_m_type_check = ["M", "Male", "male", "man", "Man"]
-        gender_f_type_check = ["FM", "F", "Female", "FeMale", "female", "women", "Women"]
-        email = ["email", "Email"]
+        name_check = ["name", "fname", "f-name", "f_name",
+                      "firstname", "first-name", "first_name"]
+        surname_check = ["lastname", "last-name", "last_name", "lname", "l-name",
+                         "l_name", "sname", "s-name", "s_name", "surname", "sur-name", "sur_name"]
+        card_id_check = ["card_id", "cardid", "Card_id", "cardnumber", "card_number", "Cardnumber",
+                         "Card_number", "personal_id", "Personal_id", "personal-id", "Personal-id", "id_card_number"]
+        address_check = ["address", "local", "location",
+                         "abode", "habitation", "residence", "residency"]
+        phone_check = ["phone", "phonenumber",
+                       "phone-number", "phone_number", "tel", "call"]
+        gender_check = ["gender", "sex"]
+        gender_m_type_check = ["m", "male", "man"]
+        gender_f_type_check = ["fm", "f", "female", "women"]
+        email = ["email", "mail"]
 
         for company in data:
-            defineformat = {}
+            defineformat = {"name": "", "surname": "", "personal_id": "",
+                            "address": "", "phone": "", "gender": ""}
             for detail in data[company][0]:
-                if str(detail) in name_check:
+                if str(detail).lower() in name_check:
                     defineformat.update({"name": data[company][0][detail]})
 
-                elif str(detail) in surname_check:
+                elif str(detail).lower() in surname_check:
                     defineformat.update({"surname": data[company][0][detail]})
 
-                elif str(detail) in card_id_check:
+                elif str(detail).lower() in card_id_check:
                     defineformat.update({"personal_id": data[company][0][detail]})
 
-                elif str(detail) in address_check:
+                elif str(detail).lower() in address_check:
                     defineformat.update({"address": data[company][0][detail]})
 
-                elif str(detail) in phone_check:
-                    defineformat.update({"Phone": data[company][0][detail]})
+                elif str(detail).lower() in phone_check:
+                    defineformat.update({"phone": data[company][0][detail]})
 
-                elif str(detail) in gender_check:
+                elif str(detail).lower() in gender_check:
                     if data[company][0][detail] in gender_m_type_check:
                         defineformat.update({"gender": "male"})
-                    if data[company][0][detail] in gender_f_type_check:
+                    elif data[company][0][detail] in gender_f_type_check:
                         defineformat.update({"gender": "female"})
 
-                elif str(detail) in email:
+                elif str(detail).lower() in email:
                     defineformat.update({"email": data[company][0][detail]})
 
             data_out.append(defineformat)
