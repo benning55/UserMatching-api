@@ -35,17 +35,25 @@ id, username, password, email
 id_card_number, fname, lname, address
 phone, credit_card,gender
 ``` 
-# Start eureka server
-1. เปิด terminal ไปยังโฟลเดอร์ eureka ```docker build -t eureka .```
-2. รันคำสั่ง ```docker run -p 8761:8761 eureka``` ให้ทำเริ่มทำงาน
 
 # How to start projects
 1. Open terminal and go to directory
-2. run command in first terminal ```docker-compose up```
-3. run command in second terminal ```docker-compose exec app sh -c "python manage.py runserver 0.0.0.0:8000```
+2. run command in first terminal ```docker-compose start eureka-server```
+3. look Ip in eureka and change it in sop2019, data-format file manage.py to the same.
+4. go to to-percent and edit ip in controller to the same ip as eureka serve.
+5. run command ```docker-compose build```
+6. run command ```docker-compose up -d```
+7. run command ```docker-compose exec -d app sh -c "python manage.py runserver 0.0.0.0:8000```
+8. run command ```docker-compose exec -d app sh -c "python manage.py runserver 0.0.0.0:8000```
 
 # Eureka Server
 The eureka server is run localhost:8761
+
+# Link to use service
+To use service vai gatewat (netfixzuul)
+localhost:9090/person-service/api/person-request/
+localhost:9090/format-service/api/data-format/
+localhost:9090/format-service/compare-data/to-percent/
 
 # Home Service enter firstname, lastname to retrieve data from company. (sop2019)
 to start service look below.
