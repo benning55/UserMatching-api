@@ -51,9 +51,9 @@ The eureka server is run localhost:8761
 
 # Link to use service
 To use service vai gatewat (netfixzuul)
-localhost:9090/person-service/api/person-request/
-localhost:9090/format-service/api/data-format/
-localhost:9090/format-service/compare-data/to-percent/
+```localhost:9090/person-service/api/person-request/```
+```localhost:9090/format-service/api/data-format/```
+```localhost:9090/format-service/compare-data/to-percent/```
 
 # Home Service enter firstname, lastname to retrieve data from company. (sop2019)
 to start service look below.
