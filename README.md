@@ -1,5 +1,7 @@
 # UserMatching-api
 - This project is the part of Service Oriented Programming.
+- You could check the project while it deploy on. http://35.198.248.75:8761/ (Eureka server)
+- Front end part at http://sop.benning.website/
 
 
 # What is this project about?
@@ -49,17 +51,29 @@ phone, credit_card,gender
 # Eureka Server
 The eureka server is run localhost:8761
 
-# Link to use service
-To use service vai gatewat (netfixzuul)
-- ```localhost:9090/person-service/api/person-request/```
-- ```localhost:9090/format-service/api/data-format/```
-- ```localhost:9090/format-service/compare-data/to-percent/```
-
 # Home Service enter firstname, lastname to retrieve data from company. (sop2019)
 to start service look below.
 1. go to file sop2019 and open project.
 2. change ip in ```manage.py, view.py``` to ip that can see in ```localhost:8761``` below.
-3. go to ```localhost:8000/person-request/``` and post json data as "first_name, last_name"
+3. go to ```localhost:8000/api/person-request/``` and post json data as "first_name, last_name"
+
+# Format Data service to change data to the same format. (sop2019)
+to start service look below.
+1. go to file dataformat and open project.
+2. change ip in ```manage.py, view.py``` to ip that can see in ```localhost:8761``` below.
+3. go to ```localhost:8300/api/data-format/``` and post json data from home service.
+
+# Compare Data service to compare data similarity as percent. (sop2019)
+to start service look below.
+1. go to file to-percent and open project.
+2. change ip in controller file to ip that can see in ```localhost:8761``` below.
+3. go to ```localhost:8400/to-percent``` and post json data from data format service.
+
+# Link to use service
+To use service vai gateway (netfixzuul)
+- ```localhost:9090/person-service/api/person-request/```
+- ```localhost:9090/format-service/api/data-format/```
+- ```localhost:9090/format-service/compare-data/to-percent/```
 
 # How does it work?
 ![Activity_diagram](https://github.com/benning55/UserMatching-api/blob/master/how_does_it_work.jpg)
