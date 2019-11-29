@@ -51,19 +51,19 @@ phone, credit_card,gender
 # Eureka Server
 The eureka server is run localhost:8761
 
-# Home Service enter firstname, lastname to retrieve data from company. (sop2019)
+# Home Service enter firstname, lastname to retrieve data from company.
 to start service look below.
 1. go to file sop2019 and open project.
 2. change ip in ```manage.py, view.py``` to ip that can see in ```localhost:8761``` below.
 3. go to ```localhost:8000/api/person-request/``` and post json data as "first_name, last_name"
 
-# Format Data service to change data to the same format. (sop2019)
+# Format Data service to change data to the same format.
 to start service look below.
 1. go to file dataformat and open project.
 2. change ip in ```manage.py, view.py``` to ip that can see in ```localhost:8761``` below.
 3. go to ```localhost:8300/api/data-format/``` and post json data from home service.
 
-# Compare Data service to compare data similarity as percent. (sop2019)
+# Compare Data service to compare data similarity as percent.
 to start service look below.
 1. go to file to-percent and open project.
 2. change ip in controller file to ip that can see in ```localhost:8761``` below.
